@@ -262,138 +262,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/12/%E5%89%8D%E7%AB%AF%E5%BC%95%E5%85%A5%E5%A4%96%E9%83%A8%E5%AD%97%E4%BD%93/%E5%89%8D%E7%AB%AF%E5%BC%95%E5%85%A5%E5%A4%96%E9%83%A8%E5%AD%97%E4%BD%93/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LSH">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="七百公里＆博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/04/12/%E5%89%8D%E7%AB%AF%E5%BC%95%E5%85%A5%E5%A4%96%E9%83%A8%E5%AD%97%E4%BD%93/%E5%89%8D%E7%AB%AF%E5%BC%95%E5%85%A5%E5%A4%96%E9%83%A8%E5%AD%97%E4%BD%93/" itemprop="url">前端引入外部字体/前端引入外部字体</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-12T19:17:43+08:00">
-                2020-04-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="前端引入外部字体"><a href="#前端引入外部字体" class="headerlink" title="前端引入外部字体"></a>前端引入外部字体</h1><hr>
-<p>&emsp;&emsp;前端字体不美观，如何引用外部字体呢？</p>
-<h2 id="字体文件下载"><a href="#字体文件下载" class="headerlink" title="字体文件下载"></a>字体文件下载</h2><p>&emsp;&emsp;很多网站都提供字体下载，其实我们需要的只是一个 <strong>ttf文件</strong>，这个网站可以提供免费的ttf字体文件下载：<a href="http://www.downcc.com/font/" target="_blank" rel="noopener">http://www.downcc.com/font/</a> </p>
-<h2 id="格式转换"><a href="#格式转换" class="headerlink" title="格式转换"></a>格式转换</h2><p>&emsp;&emsp;不同的浏览器需要不同格式的字体文件，一般我们需要的有 <strong>eot svg ttf woff</strong> 这几类字体文件来适应不同的浏览器，这里提供一个可以格式转换的网站：<a href="https://www.fontke.com/tool/convfont/" target="_blank" rel="noopener">https://www.fontke.com/tool/convfont/</a> 上传我们下载的 <strong>ttf文件</strong> 后，选择想要的格式，进行转换下载即可。</p>
-<h2 id="CSS引入"><a href="#CSS引入" class="headerlink" title="CSS引入"></a>CSS引入</h2><p>将下载好的几种格式文件放入我们的项目中（最好建一个文件夹专门用于存放字体），在 CSS 文件中写入：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*引入外部字体*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@font-face</span> &#123;</span><br><span class="line">    <span class="attribute">font-family</span>: <span class="string">"布丁体"</span>;</span><br><span class="line">    <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">"../src/font/布丁体.eot"</span>); <span class="comment">/* IE9 */</span></span><br><span class="line">    <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">"../src/font/布丁体.eot?#iefix"</span>)</span><br><span class="line">    <span class="built_in">format</span>(<span class="string">"embedded-opentype"</span>),  <span class="comment">/* IE6-IE8 */</span></span><br><span class="line">    <span class="built_in">url</span>(<span class="string">"../src/font/布丁体.woff"</span>) <span class="built_in">format</span>(<span class="string">"woff"</span>), <span class="comment">/* chrome firefox */</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">url</span>(<span class="string">"../src/font/布丁体.ttf"</span>) <span class="built_in">format</span>(<span class="string">"truetype"</span>), <span class="comment">/* chrome firefox opera Safari Android IOS 4.2+ */</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">url</span>(<span class="string">"../src/font/布丁体.svg#布丁体"</span>) <span class="built_in">format</span>(<span class="string">"svg"</span>);  <span class="comment">/* IOS 4.2- */</span></span><br><span class="line">    <span class="attribute">font-style</span>: normal;</span><br><span class="line">    <span class="attribute">font-weight</span>: normal;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>注意这里我用的是 “布丁体”，<strong>url()</strong> 里是我的字体文件在项目中的存放路径，根据自己引入的字体修改字体名字。</p>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.class</span> &#123;</span><br><span class="line">    <span class="attribute">font-family</span>: <span class="string">'布丁体'</span>, serif;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>serif</strong> 是字体引入失败时的备用字体，也可以不添加。</p>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ol>
-<li><a href="http://www.one-net.cc/post/196.html" target="_blank" rel="noopener">http://www.one-net.cc/post/196.html</a></li>
-<li><a href="https://my.oschina.net/Cubicluo/blog/888505" target="_blank" rel="noopener">https://my.oschina.net/Cubicluo/blog/888505</a></li>
-</ol>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/12/%E5%89%8D%E7%AB%AF%E5%BC%95%E5%85%A5%E5%A4%96%E9%83%A8%E5%AD%97%E4%BD%93/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -465,7 +333,20 @@
       
         
           
-            
+            <h1 id="前端引入外部字体"><a href="#前端引入外部字体" class="headerlink" title="前端引入外部字体"></a>前端引入外部字体</h1><hr>
+<p>&emsp;&emsp;前端字体不美观，如何引用外部字体呢？</p>
+<h2 id="字体文件下载"><a href="#字体文件下载" class="headerlink" title="字体文件下载"></a>字体文件下载</h2><p>&emsp;&emsp;很多网站都提供字体下载，其实我们需要的只是一个 <strong>ttf文件</strong>，这个网站可以提供免费的ttf字体文件下载：<a href="http://www.downcc.com/font/" target="_blank" rel="noopener">http://www.downcc.com/font/</a> </p>
+<h2 id="格式转换"><a href="#格式转换" class="headerlink" title="格式转换"></a>格式转换</h2><p>&emsp;&emsp;不同的浏览器需要不同格式的字体文件，一般我们需要的有 <strong>eot svg ttf woff</strong> 这几类字体文件来适应不同的浏览器，这里提供一个可以格式转换的网站：<a href="https://www.fontke.com/tool/convfont/" target="_blank" rel="noopener">https://www.fontke.com/tool/convfont/</a> 上传我们下载的 <strong>ttf文件</strong> 后，选择想要的格式，进行转换下载即可。</p>
+<h2 id="CSS引入"><a href="#CSS引入" class="headerlink" title="CSS引入"></a>CSS引入</h2><p>将下载好的几种格式文件放入我们的项目中（最好建一个文件夹专门用于存放字体），在 CSS 文件中写入：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*引入外部字体*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@font-face</span> &#123;</span><br><span class="line">    <span class="attribute">font-family</span>: <span class="string">"布丁体"</span>;</span><br><span class="line">    <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">"../src/font/布丁体.eot"</span>); <span class="comment">/* IE9 */</span></span><br><span class="line">    <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">"../src/font/布丁体.eot?#iefix"</span>)</span><br><span class="line">    <span class="built_in">format</span>(<span class="string">"embedded-opentype"</span>),  <span class="comment">/* IE6-IE8 */</span></span><br><span class="line">    <span class="built_in">url</span>(<span class="string">"../src/font/布丁体.woff"</span>) <span class="built_in">format</span>(<span class="string">"woff"</span>), <span class="comment">/* chrome firefox */</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">url</span>(<span class="string">"../src/font/布丁体.ttf"</span>) <span class="built_in">format</span>(<span class="string">"truetype"</span>), <span class="comment">/* chrome firefox opera Safari Android IOS 4.2+ */</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">url</span>(<span class="string">"../src/font/布丁体.svg#布丁体"</span>) <span class="built_in">format</span>(<span class="string">"svg"</span>);  <span class="comment">/* IOS 4.2- */</span></span><br><span class="line">    <span class="attribute">font-style</span>: normal;</span><br><span class="line">    <span class="attribute">font-weight</span>: normal;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意这里我用的是 “布丁体”，<strong>url()</strong> 里是我的字体文件在项目中的存放路径，根据自己引入的字体修改字体名字。</p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.class</span> &#123;</span><br><span class="line">    <span class="attribute">font-family</span>: <span class="string">'布丁体'</span>, serif;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>serif</strong> 是字体引入失败时的备用字体，也可以不添加。</p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ol>
+<li><a href="http://www.one-net.cc/post/196.html" target="_blank" rel="noopener">http://www.one-net.cc/post/196.html</a></li>
+<li><a href="https://my.oschina.net/Cubicluo/blog/888505" target="_blank" rel="noopener">https://my.oschina.net/Cubicluo/blog/888505</a></li>
+</ol>
+
           
         
       
@@ -882,7 +763,7 @@
               
                 <a href="/archives/%20%7C%7C%20archive">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -890,6 +771,15 @@
 
             
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
             
 
           </nav>
