@@ -1,0 +1,27 @@
+<h1 id="前端引入外部字体"><a href="#前端引入外部字体" class="headerlink" title="前端引入外部字体"></a>前端引入外部字体</h1><hr>
+<p>&emsp;&emsp;前端字体不美观，如何引用外部字体呢？</p>
+<h2 id="字体文件下载"><a href="#字体文件下载" class="headerlink" title="字体文件下载"></a>字体文件下载</h2><p>&emsp;&emsp;很多网站都提供字体下载，其实我们需要的只是一个 <strong>ttf文件</strong>，这个网站可以提供免费的ttf字体文件下载：<a href="http://www.downcc.com/font/" target="_blank" rel="noopener">http://www.downcc.com/font/</a> </p>
+<h2 id="格式转换"><a href="#格式转换" class="headerlink" title="格式转换"></a>格式转换</h2><p>&emsp;&emsp;不同的浏览器需要不同格式的字体文件，一般我们需要的有 <strong>eot svg ttf woff</strong> 这几类字体文件来适应不同的浏览器，这里提供一个可以格式转换的网站：<a href="https://www.fontke.com/tool/convfont/" target="_blank" rel="noopener">https://www.fontke.com/tool/convfont/</a> 上传我们下载的 <strong>ttf文件</strong> 后，选择想要的格式，进行转换下载即可。</p>
+<h2 id="CSS引入"><a href="#CSS引入" class="headerlink" title="CSS引入"></a>CSS引入</h2><p>将下载好的几种格式文件放入我们的项目中（最好建一个文件夹专门用于存放字体），在 CSS 文件中写入：</p>
+<pre><code>/*引入外部字体*/
+
+@font-face {
+    font-family: &quot;布丁体&quot;;
+    src: url(&quot;../src/font/布丁体.eot&quot;); /* IE9 */
+    src: url(&quot;../src/font/布丁体.eot?#iefix&quot;)
+    format(&quot;embedded-opentype&quot;),  /* IE6-IE8 */
+    url(&quot;../src/font/布丁体.woff&quot;) format(&quot;woff&quot;), /* chrome firefox */
+
+    url(&quot;../src/font/布丁体.ttf&quot;) format(&quot;truetype&quot;), /* chrome firefox opera Safari Android IOS 4.2+ */
+
+    url(&quot;../src/font/布丁体.svg#布丁体&quot;) format(&quot;svg&quot;);  /* IOS 4.2- */
+    font-style: normal;
+    font-weight: normal;
+}</code></pre><p>注意这里我用的是 “布丁体”，<strong>url()</strong> 里是我的字体文件在项目中的存放路径，根据自己引入的字体修改字体名字。</p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><pre><code>.class {
+    font-family: &apos;布丁体&apos;, serif;
+}</code></pre><p><strong>serif</strong> 是字体引入失败时的备用字体，也可以不添加。</p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ol>
+<li><a href="http://www.one-net.cc/post/196.html" target="_blank" rel="noopener">http://www.one-net.cc/post/196.html</a></li>
+<li><a href="https://my.oschina.net/Cubicluo/blog/888505" target="_blank" rel="noopener">https://my.oschina.net/Cubicluo/blog/888505</a></li>
+</ol>
